@@ -1,11 +1,11 @@
-import Button, { ButtonProps } from "./index"
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 
-import React from "react"
+import Button from './index'
+import React from 'react'
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 export default {
-    title: "Button",
+    title: 'Button',
     component: Button,
     argTypes: {
         outline: {
@@ -21,8 +21,11 @@ export default {
             control: { type: 'select' }
         },
         disabled: {
-            options: ['disabled'],
-            control: { type: 'check' }
+            options: [true, false],
+            control: { type: 'radio' }
+        },
+        onClick: {
+            description: 'Function to be triggered on click',
         }
     },
 } as ComponentMeta<typeof Button>
@@ -32,8 +35,11 @@ export default {
 export const Primary = Template.bind({})
 Primary.args = {
     children: 'button',
-    color: "primary"
+    color: 'primary',
 }
 
-// export const Secondary = Template.bind({})
-// Secondary.args = { ...Primary.args, color: 'secondary' }
+export const Secondary = Template.bind({})
+Secondary.args = { ...Primary.args, color: 'secondary' }
+
+export const LinkButton = Template.bind({})
+LinkButton.args = { children: 'Link button', href: 'https://www.getpapercss.com/' }

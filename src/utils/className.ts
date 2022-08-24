@@ -18,5 +18,5 @@ export default function className(
     ...Object.entries(conditional)
       .filter(([k, v]) => Boolean(v))
       .map(([k, v]) => k),
-  ].join(" ");
+  ].join(' ')
 }
